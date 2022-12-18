@@ -1,0 +1,74 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Auth::routes();
+Route::get('/', 'Frontend\FrontendController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>'auth'],function(){
+
+//-------user---------//
+Route::prefix('user')->group(function()
+{
+Route::get('/view','Backend\UserController@view')->name('user.view');
+Route::get('/add','Backend\UserController@add')->name('user.add');
+Route::post('/store','Backend\UserController@store')->name('user.store');
+Route::get('/edit/{id}','Backend\UserController@edit')->name('user.edit');
+Route::post('/update/{id}','Backend\UserController@update')->name('user.update');
+Route::get('/delete/{id}','Backend\UserController@delete')->name('user.delete');
+});
+
+//-------profile-------//
+Route::prefix('profiles')->group(function()
+{
+Route::get('/view','Backend\ProfilesController@view')->name('profiles.view');
+Route::get('/edit','Backend\ProfilesController@edit')->name('profiles.edit');
+Route::post('/store','Backend\ProfilesController@update')->name('profiles.update');
+Route::get('/password/view','Backend\ProfilesController@passwordview')->name('profiles.password.view');
+Route::post('/password/update','Backend\ProfilesController@passwordupdate')->name('profiles.password.update');
+});
+
+
+//------setup function--------//
+Route::prefix('setups')->group(function()
+{
+//------student class-------//
+Route::get('/student/class/view','Backend\Setup\StudentClassController@view')->name('setups.student.class.view');
+Route::get('/student/class/add','Backend\Setup\StudentClassController@add')->name('setups.student.class.add');
+Route::post('/student/class/store','Backend\Setup\StudentClassController@store')->name('setups.student.class.store');
+Route::get('/student/class/edit/{id}','Backend\Setup\StudentClassController@edit')->name('setups.student.class.edit');
+Route::post('/student/class/update/{id}','Backend\Setup\StudentClassController@update')->name('setups.student.class.update');
+Route::post('/sabbir','Backend\Setup\StudentClassController@delete')->name('hello.bangladesh');
+
+//---------student year------//
+Route::get('/student/year/view','Backend\Setup\StudentYearController@view')->name('setups.student.year.view');
+Route::get('/student/year/add','Backend\Setup\StudentYearController@add')->name('setups.student.year.add');
+Route::post('/student/year/store','Backend\Setup\StudentYearController@store')->name('setups.student.year.store');
+Route::get('/student/year/edit/{id}','Backend\Setup\StudentYearController@edit')->name('setups.student.year.edit');
+Route::post('/student/year/update/{id}','Backend\Setup\StudentYearController@update')->name('setups.student.year.update');
+Route::post('/student/year/delete','Backend\Setup\StudentYearController@delete')->name('setups.student.year.delete');
+
+
+});
+
+
+
+
+});
+
+
+
+
