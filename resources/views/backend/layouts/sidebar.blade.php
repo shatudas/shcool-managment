@@ -57,7 +57,7 @@ $route = Route::current()->getName();
 
 
 
-         <li class="nav-item has-treeview {{($prefix=='/setups')?'menu-open':''}}">
+          <li class="nav-item has-treeview {{($prefix=='/setups')?'menu-open':''}}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -77,6 +77,12 @@ $route = Route::current()->getName();
                 <a href="{{route('setups.student.year.view')}}" class="nav-link  {{($route=='setups.student.year.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Year</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('setups.student.group.view')}}" class="nav-link  {{($route=='setups.student.group.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Group</p>
                 </a>
               </li>
             </ul>

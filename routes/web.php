@@ -61,6 +61,14 @@ Route::get('/student/year/edit/{id}','Backend\Setup\StudentYearController@edit')
 Route::post('/student/year/update/{id}','Backend\Setup\StudentYearController@update')->name('setups.student.year.update');
 Route::post('/student/year/delete','Backend\Setup\StudentYearController@delete')->name('setups.student.year.delete');
 
+//------Student Group-------//
+Route::get('/student/group/view','Backend\Setup\StudentGroupController@view')->name('setups.student.group.view');
+Route::get('/student/group/add','Backend\Setup\StudentGroupController@add')->name('setups.student.group.add');
+Route::post('/student/group/store','Backend\Setup\StudentGroupController@store')->name('setups.student.group.store');
+Route::get('/student/group/edit/{id}','Backend\Setup\StudentGroupController@edit')->name('setups.student.group.edit');
+Route::post('/student/group/update/{id}','Backend\Setup\StudentGroupController@update')->name('setups.student.group.update');
+Route::post('/student/group/delete','Backend\Setup\StudentGroupController@delete')->name('setups.student.group.delete');
+
 
 });
 
