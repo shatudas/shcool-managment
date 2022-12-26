@@ -79,13 +79,24 @@ Route::post('/student/shift/update/{id}','Backend\Setup\StudentshiftController@u
 Route::post('/student/shift/delete','Backend\Setup\StudentshiftController@delete')->name('setups.student.shift.delete');
 
 
-//------Student Fee-------//
+//------Student Fee Category-------//
 Route::get('/fee/category/view','Backend\Setup\FeeCategoryController@view')->name('fee.category.view');
 Route::get('/fee/category/add','Backend\Setup\FeeCategoryController@add')->name('fee.category.add');
 Route::post('/fee/category/store','Backend\Setup\FeeCategoryController@store')->name('fee.category.store');
 Route::get('/fee/category/edit/{id}','Backend\Setup\FeeCategoryController@edit')->name('fee.category.edit');
 Route::post('/fee/category/update/{id}','Backend\Setup\FeeCategoryController@update')->name('fee.category.update');
 Route::post('/fee/category/delete','Backend\Setup\FeeCategoryController@delete')->name('fee.category.delete');
+
+
+//------Student Fee Category Amount-------//
+Route::get('/fee/amount/view','Backend\Setup\FeeAmountController@view')->name('fee.amount.view');
+Route::get('/fee/amount/add','Backend\Setup\FeeAmountController@add')->name('fee.amount.add');
+Route::post('/fee/amount/store','Backend\Setup\FeeAmountController@store')->name('fee.amount.store');
+Route::get('/fee/amount/edit/{fee_category_id}','Backend\Setup\FeeAmountController@edit')->name('fee.amount.edit');
+Route::post('/fee/amount/update/{fee_category_id}','Backend\Setup\FeeAmountController@update')->name('fee.amount.update');
+Route::post('/fee/amount/delete','Backend\Setup\FeeAmountController@delete')->name('fee.amount.delete');
+Route::get('/fee/amount/detalis/{fee_category_id}','Backend\Setup\FeeAmountController@detalis')->name('fee.amount.detalis');
+
 
 });
 

@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('image')->nullable();
             $table->tinyInteger('status')->default(1);
+            $table->boolean('delete_able')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

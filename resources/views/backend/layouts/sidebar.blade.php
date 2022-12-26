@@ -55,8 +55,6 @@ $route = Route::current()->getName();
             </ul>
           </li>
 
-
-
           <li class="nav-item has-treeview {{($prefix=='/setups')?'menu-open':''}}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -94,7 +92,13 @@ $route = Route::current()->getName();
               <li class="nav-item">
                 <a href="{{route('fee.category.view')}}" class="nav-link  {{($route=='fee.category.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Student Fee</p>
+                  <p>Fee Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('fee.amount.view')}}" class="nav-link  {{($route=='fee.amount.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fee Category Amount</p>
                 </a>
               </li>
             </ul>

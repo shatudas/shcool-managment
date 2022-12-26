@@ -98,8 +98,8 @@
 
 
 
-  <script>
-$(function () {
+<script>
+ $(function () {
   $('#myForm').validate({
     rules: {
      user_type: {

@@ -12,7 +12,7 @@ class UserController extends Controller
     {
     	// $allData= User::all();
     	// dd($allData->toArray());
-    	$data['allData'] =user::all();
+    	$data['allData'] =user::where('user_type', '<>','Admin')->get();
     	return view('backend.user.view-user',$data);
     }
 

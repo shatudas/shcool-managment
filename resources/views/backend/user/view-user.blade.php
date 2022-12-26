@@ -59,9 +59,9 @@
                     <td>{{$user->email}}</td>
                     <td>
                       <a title="Edit" href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
-
+                      @if($user->delete_able == true)
                       <a title="Delete" href="{{route('user.delete',$user->id)}}" id="delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-
+                      @endif
                     </td>
 
                    

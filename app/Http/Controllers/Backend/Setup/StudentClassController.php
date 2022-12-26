@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\StduentClass;
 
+
 class StudentClassController extends Controller
 {
     public function view()
