@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\StduentClass;
 use App\Model\FeeCategory;
-
+use DB;
 
 
 class FeeCategoryController extends Controller

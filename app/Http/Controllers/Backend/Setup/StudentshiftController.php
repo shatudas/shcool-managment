@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Setup;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\StudentShift;
+use DB;
 
 
 class StudentshiftController extends Controller
