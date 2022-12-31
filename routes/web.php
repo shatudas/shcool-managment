@@ -106,6 +106,15 @@ Route::get('/exam/type/edit/{id}','Backend\Setup\ExamTypeController@edit')->name
 Route::post('/exam/type/update/{id}','Backend\Setup\ExamTypeController@update')->name('setups.exam.type.update');
 Route::post('/exam/type/delete','Backend\Setup\ExamTypeController@delete')->name('setups.exam.type.delete');
 
+//------subject-------//
+Route::get('/subject/view','Backend\Setup\SubjecCtontroller@view')->name('setups.subject.view');
+Route::get('/subject/add','Backend\Setup\SubjecCtontroller@add')->name('setups.subject.add');
+Route::post('/subject/store','Backend\Setup\SubjecCtontroller@store')->name('setups.subject.store');
+Route::get('/subject/edit/{id}','Backend\Setup\SubjecCtontroller@edit')->name('setups.subject.edit');
+Route::post('/subject/update/{id}','Backend\Setup\SubjecCtontroller@update')->name('setups.subject.update');
+Route::post('/subject/delete','Backend\Setup\SubjecCtontroller@delete')->name('setups.subject.delete');
+
+
 
 });
 
