@@ -115,6 +115,15 @@ Route::post('/subject/update/{id}','Backend\Setup\SubjecCtontroller@update')->na
 Route::post('/subject/delete','Backend\Setup\SubjecCtontroller@delete')->name('setups.subject.delete');
 
 
+//-----assingsubject-------//
+Route::get('/assing/subject/view','Backend\Setup\AssingSubjecCtontroller@view')->name('setups.assing.subject.view');
+Route::get('/assing/subject/add','Backend\Setup\AssingSubjecCtontroller@add')->name('setups.assing.subject.add');
+Route::post('/assing/subject/store','Backend\Setup\AssingSubjecCtontroller@store')->name('setups.assing.subject.store');
+Route::get('/assing/subject/edit/{class_id}','Backend\Setup\AssingSubjecCtontroller@edit')->name('setups.assing.subject.edit');
+Route::post('/assing/subject/update/{class_id}','Backend\Setup\AssingSubjecCtontroller@update')->name('setups.assing.subject.update');
+Route::post('/assing/subject/delete','Backend\Setup\AssingSubjecCtontroller@delete')->name('setups.assing.subject.delete');
+Route::get('/assing/subject/detalis/{class_id}','Backend\Setup\AssingSubjecCtontroller@detalis')->name('setups.assing.subject.detalis');
+
 
 });
 

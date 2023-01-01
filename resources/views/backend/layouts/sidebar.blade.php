@@ -113,6 +113,12 @@ $route = Route::current()->getName();
                   <p>Subject View</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('setups.assing.subject.view')}}" class="nav-link  {{($route=='setups.assing.subject.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Assing Subject</p>
+                </a>
+              </li>
             </ul>
           </li>
 
