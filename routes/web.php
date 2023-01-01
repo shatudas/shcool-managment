@@ -123,10 +123,16 @@ Route::get('/assing/subject/edit/{class_id}','Backend\Setup\AssingSubjecCtontrol
 Route::post('/assing/subject/update/{class_id}','Backend\Setup\AssingSubjecCtontroller@update')->name('setups.assing.subject.update');
 Route::post('/assing/subject/delete','Backend\Setup\AssingSubjecCtontroller@delete')->name('setups.assing.subject.delete');
 Route::get('/assing/subject/detalis/{class_id}','Backend\Setup\AssingSubjecCtontroller@detalis')->name('setups.assing.subject.detalis');
-
-
 });
 
+
+//------subject-------//
+Route::get('/designation/view','Backend\Setup\DesignationCtontroller@view')->name('setups.designation.view');
+Route::get('/designation/add','Backend\Setup\DesignationCtontroller@add')->name('setups.designation.add');
+Route::post('/designation/store','Backend\Setup\DesignationCtontroller@store')->name('setups.designation.store');
+Route::get('/designation/edit/{id}','Backend\Setup\DesignationCtontroller@edit')->name('setups.designation.edit');
+Route::post('/designation/update/{id}','Backend\Setup\DesignationCtontroller@update')->name('setups.designation.update');
+Route::post('/designation/delete','Backend\Setup\DesignationCtontroller@delete')->name('setups.designation.delete');
 
 
 
