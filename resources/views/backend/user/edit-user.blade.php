@@ -36,14 +36,14 @@
                <form method="POST" action="{{route('user.update',$editData->id)}}" id="myForm">
                 @csrf
                 <div class="form-row">
-               
+
 
                 <div class="form-group col-md-4">
-                 <label for="usertype">User Role</label>
-                 <select name="user_type" id="usertype" class="form-control">
+                 <label for="role">User Role</label>
+                 <select name="role" id="role" class="form-control">
                   <option value="">Select Role</option>
-                  <option value="Admin" {{$editData->user_type=="Admin"?"selected":""}}>Admin</option>
-                  <option value="User" {{$editData->user_type=="User"?"selected":""}}>User</option>
+                  <option value="Admin" {{$editData->role=="Admin"?"selected":""}}>Admin</option>
+                  <option value="Oparetor" {{$editData->role=="Oparetor"?"selected":""}}>Oparetor</option>
                  </select>
                 </div>
 
@@ -70,7 +70,7 @@
                 </div>
                </form>
 
-        
+
               </div>
             </div>
             <!-- /.card -->
@@ -81,7 +81,7 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-    
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -93,7 +93,7 @@
 $(function () {
   $('#myForm').validate({
     rules: {
-     user_type: {
+     role: {
      required: true,
     },
 
@@ -104,14 +104,7 @@ $(function () {
      required: true,
      email: true,
     },
-     password: {
-     required: true,
-     minlength: 6
-    },
-     password2: {
-     required: true,
-     equalTo : '#password'
-    },
+
     },
     messages: {
      name: {
@@ -124,14 +117,7 @@ $(function () {
         required: "Please enter a email address",
         email: "Please enter a <em>valid</em> email address",
       },
-      password: {
-        required: "Please enter password",
-        minlength: "Your password must be at least 6 characters long",
-      },
-      password2: {
-        required: "Please enter confirm password",
-        equalTo: "Confirm password does not match",
-      },
+
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

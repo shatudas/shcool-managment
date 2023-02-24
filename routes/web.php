@@ -135,10 +135,26 @@ Route::post('/designation/update/{id}','Backend\Setup\DesignationCtontroller@upd
 Route::post('/designation/delete','Backend\Setup\DesignationCtontroller@delete')->name('setups.designation.delete');
 
 
+});
+
+//-------profile-------//
+Route::prefix('student')->group(function()
+{
+Route::get('/reg/view','Backend\Student\StudentRegController@view')->name('student.registration.view');
+Route::get('/reg/add','Backend\Student\StudentRegController@add')->name('student.registration.add');
+Route::post('/reg/store','Backend\Student\StudentRegController@store')->name('student.registration.store');
+Route::get('/reg/edit/{student_id}','Backend\Student\StudentRegController@edit')->name('student.registration.edit');
+Route::post('/reg/update/{student_id}','Backend\Student\StudentRegController@update')->name('student.registration.update');
+Route::post('/reg/delete','Backend\Student\StudentRegController@delete')->name('student.registration.delete');
+Route::get('/year-class-wias','Backend\Student\StudentRegController@yearclasswias')->name('student.year.class');
+
+Route::get('/reg/promotion/{student_id}','Backend\Student\StudentRegController@promotion')->name('student.registration.promotion');
+Route::post('/reg/promotion/{student_id}','Backend\Student\StudentRegController@promotionstore')->name('student.registration.promotion.store');
+
+Route::get('/reg/detallis/{student_id}','Backend\Student\StudentRegController@detallis')->name('student.registration.detallis');
 
 
 });
-
 
 
 

@@ -28,8 +28,7 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" src="{{!empty($user->image)?url('public/upload/user_images/'.$user->image):url('public/upload/No-image.jpg')}}"
-                       alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle" src="{{!empty($user->image)?url('upload/user_images/'.$user->image):url('upload/No-image.jpg')}}" style="height:150px; width:150px;">
                 </div>
 
                 <h3 class="profile-username text-center">{{$user->nmae}}</h3>

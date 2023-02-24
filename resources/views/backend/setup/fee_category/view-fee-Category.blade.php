@@ -53,9 +53,9 @@
                     <td>{{$value->name}}</td>
                     <td>
                       <a title="Edit" href="{{route('fee.category.edit',$value->id)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
-                      <a href="" id="deleteButton" class="btn btn-sm btn-danger" data-id="{{$value->id}}">
+                      {{-- <a href="" id="deleteButton" class="btn btn-sm btn-danger" data-id="{{$value->id}}">
                         <i class="fa fa-trash"></i>
-                      </a>
+                      </a> --}}
 
                     </td>
 

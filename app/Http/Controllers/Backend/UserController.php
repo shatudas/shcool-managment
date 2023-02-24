@@ -10,14 +10,13 @@ class UserController extends Controller
 {
     public function view()
     {
-    	// $allData= User::all();
-    	// dd($allData->toArray());
-    	$data['allData'] =user::where('user_type', '<>','Admin')->get();
+      $data['allData'] = User::where('user_type','Admin')->get();
     	return view('backend.user.view-user',$data);
     }
 
     public function add()
     {
+
     	return view('backend.user.add-user');
     }
 
@@ -27,15 +26,17 @@ class UserController extends Controller
         'name'=>'required',
         'email'=>'required|unique:users,email'
       ]);
-
+      $code = rand(0000,9999);
       $data= new User();
-      $data->user_type=$Request->user_type;
+      $data->user_type='Admin';
+      $data->role=$Request->role;
       $data->name=$Request->name;
       $data->email=$Request->email;
-      $data->password=bcrypt($Request->password);
+      $data->password=bcrypt($code);
+      $data->code= $code;
       $data->save();
       return redirect()->route('user.view')->with('success','Data Insert Successfully');
-      
+
     }
 
     public function edit($id)
@@ -50,10 +51,10 @@ class UserController extends Controller
         'name'=>'required',
         // 'email'=>'required|unique:users,email'
       ]);
-     
+
      $data= user::find($id);
-      $data->user_type=$Request->user_type;
       $data->name=$Request->name;
+      $data->role=$Request->role;
       $data->email=$Request->email;
       $data->password=bcrypt($Request->password);
       $data->save();
@@ -76,7 +77,7 @@ class UserController extends Controller
 
      $user->delete();
      return redirect()->route('user.view')->with('success','Data Deleted Successfully');
-    } 
+    }
 
 
 }

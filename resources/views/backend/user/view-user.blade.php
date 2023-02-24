@@ -36,13 +36,14 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-                  
+
                 <thead>
                   <tr>
                     <th>SL</th>
                     <th>Role</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Code</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -51,12 +52,13 @@
 
                   @foreach($allData as $key => $user)
                   <tr>
-                   
+
 
                     <td>{{$key+1}}</td>
                     <td>{{$user->user_type}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$user->code}}</td>
                     <td>
                       <a title="Edit" href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
                       @if($user->delete_able == true)
@@ -64,7 +66,7 @@
                       @endif
                     </td>
 
-                   
+
                   </tr>
 
                    @endforeach
@@ -82,7 +84,7 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-    
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

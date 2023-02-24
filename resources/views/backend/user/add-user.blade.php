@@ -36,13 +36,13 @@
                <form method="POST" action="{{route('user.store')}}" id="myForm">
                 @csrf
                 <div class="form-row">
-               
+
                 <div class="form-group col-md-4">
-                 <label for="usertype">User Role</label>
-                 <select name="user_type" id="usertype" class="form-control">
+                 <label for="role">User Role</label>
+                 <select name="role" id="role" class="form-control">
                   <option value="">Select Role</option>
                   <option value="Admin">Admin</option>
-                  <option value="User">User</option>
+                  <option value="Oparetor">Oparetor</option>
                  </select>
                 </div>
 
@@ -59,16 +59,6 @@
                  <font style="color:red">{{($errors->has('email'))?($errors->first('email')):'' }}</font>
                 </div>
 
-           
-                <div class="form-group col-md-4">
-                 <label for="name">Pasword</label>
-                 <input type="password" name="password" id="password" class="form-control">
-                </div>
-
-                <div class="form-group col-md-4">
-                 <label for="name">Confirm Pasword</label>
-                 <input type="password" name="password2" id="password" class="form-control">
-                </div>
 
 
                 <div class="form-group col-md-6">
@@ -79,7 +69,7 @@
                 </div>
                </form>
 
-        
+
               </div>
             </div>
             <!-- /.card -->
@@ -90,7 +80,7 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-    
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -102,7 +92,7 @@
  $(function () {
   $('#myForm').validate({
     rules: {
-     user_type: {
+        role: {
      required: true,
     },
 
@@ -113,14 +103,7 @@
      required: true,
      email: true,
     },
-     password: {
-     required: true,
-     minlength: 6
-    },
-     password2: {
-     required: true,
-     equalTo : '#password'
-    },
+
     },
     messages: {
      name: {
@@ -133,14 +116,7 @@
         required: "Please enter a email address",
         email: "Please enter a <em>valid</em> email address",
       },
-      password: {
-        required: "Please enter password",
-        minlength: "Your password must be at least 6 characters long",
-      },
-      password2: {
-        required: "Please enter confirm password",
-        equalTo: "Confirm password does not match",
-      },
+
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
