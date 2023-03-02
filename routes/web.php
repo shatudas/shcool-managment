@@ -140,6 +140,8 @@ Route::post('/designation/delete','Backend\Setup\DesignationCtontroller@delete')
 //-------profile-------//
 Route::prefix('student')->group(function()
 {
+
+	//-----stduent genarate-----//
 Route::get('/reg/view','Backend\Student\StudentRegController@view')->name('student.registration.view');
 Route::get('/reg/add','Backend\Student\StudentRegController@add')->name('student.registration.add');
 Route::post('/reg/store','Backend\Student\StudentRegController@store')->name('student.registration.store');
@@ -150,8 +152,18 @@ Route::get('/year-class-wias','Backend\Student\StudentRegController@yearclasswia
 
 Route::get('/reg/promotion/{student_id}','Backend\Student\StudentRegController@promotion')->name('student.registration.promotion');
 Route::post('/reg/promotion/{student_id}','Backend\Student\StudentRegController@promotionstore')->name('student.registration.promotion.store');
-
 Route::get('/reg/detallis/{student_id}','Backend\Student\StudentRegController@detallis')->name('student.registration.detallis');
+
+
+//-----roll ganarate------//
+
+Route::get('/roll/view','Backend\Student\StudentRollController@view')->name('student.roll.view');
+ Route::get('/roll/get-student','Backend\Student\StudentRollController@get_student')->name('student.roll.get-student');
+Route::post('/roll/store','Backend\Student\StudentRollController@store')->name('student.roll.store');
+
+
+
+
 
 
 });

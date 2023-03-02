@@ -28,7 +28,6 @@ class StudentRegController extends Controller
     return view('backend.student.student_reg.view-student',$data);
    }
 
-
    public function yearclasswias(Request $request){
     $data['years'] = Year::orderBy('id','desc')->get();
     $data['classs'] = StduentClass::all();

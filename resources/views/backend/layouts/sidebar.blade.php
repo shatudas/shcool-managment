@@ -146,6 +146,12 @@ $route = Route::current()->getName();
 									<p>Student Registration</p>
 								</a>
 							</li>
+              <li class="nav-item">
+                <a href="{{route('student.roll.view')}}" class="nav-link  {{($route=='student.roll.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Roll Generate</p>
+                </a>
+              </li>
 						</ul>
 					</li>
 
