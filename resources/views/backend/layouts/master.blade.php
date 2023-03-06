@@ -49,19 +49,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify/0.4.2//notify.js"></script>
 
 
-
   <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+   $( function() {
+     $( "#datepicker" ).datepicker();
+   } );
   </script>
 
-<style type="text/css">
-  .notify-corner
-  {
-    z-index:990!important;
-  }
-</style>
+ <style type="text/css">
+   .notify-corner
+   {
+     z-index:990!important;
+   }
+ </style>
 
 
 
@@ -193,11 +192,11 @@
 <script src="{{ asset('backend') }}/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <script src="{{ asset('backend') }}/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
+<!-- JQVMap -->{{-- 
 <script src="{{ asset('backend') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{ asset('backend') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="{{ asset('backend') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> --}}
 <!-- jQuery Knob Chart -->
-<script src="{{ asset('backend') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
+{{-- <script src="{{ asset('backend') }}/plugins/jquery-knob/jquery.knob.min.js"></script> --}}
 <!-- daterangepicker -->
 <script src="{{ asset('backend') }}/plugins/moment/moment.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/daterangepicker/daterangepicker.js"></script>
@@ -228,9 +227,14 @@
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 
+
 <!-- jquery-validation -->
 <script src="{{ asset('backend') }}/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/jquery-validation/additional-methods.min.js"></script>
+
+
+<!-----handlebars---------->
+<script src="{{ asset('backend') }}/plugins/datatables-buttons/js/handlebars.js"></script>
 
 
 <!-------aweet alert & delete----->

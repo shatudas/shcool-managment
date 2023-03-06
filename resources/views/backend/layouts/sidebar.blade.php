@@ -152,6 +152,12 @@ $route = Route::current()->getName();
                   <p>Roll Generate</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('student.reg.fee.view')}}" class="nav-link  {{($route=='student.reg.fee.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registration Fee</p>
+                </a>
+              </li>
 						</ul>
 					</li>
 

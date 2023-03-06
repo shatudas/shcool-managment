@@ -1,19 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 Route::get('/', 'Frontend\FrontendController@index');
@@ -156,11 +142,15 @@ Route::get('/reg/detallis/{student_id}','Backend\Student\StudentRegController@de
 
 
 //-----roll ganarate------//
-
 Route::get('/roll/view','Backend\Student\StudentRollController@view')->name('student.roll.view');
  Route::get('/roll/get-student','Backend\Student\StudentRollController@get_student')->name('student.roll.get-student');
 Route::post('/roll/store','Backend\Student\StudentRollController@store')->name('student.roll.store');
 
+
+//------student Registration fee---------//
+Route::get('/reg/fee/view','Backend\Student\RegistrationFeeController@view')->name('student.reg.fee.view');
+Route::get('/reg/get-student','Backend\Student\RegistrationFeeController@getStudent')->name('student.reg.fee.get-student');
+Route::get('/reg/fee/payslif','Backend\Student\RegistrationFeeController@payslif')->name('student.reg.fee.payslif');
 
 
 
