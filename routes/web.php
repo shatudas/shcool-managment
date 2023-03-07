@@ -149,8 +149,21 @@ Route::post('/roll/store','Backend\Student\StudentRollController@store')->name('
 
 //------student Registration fee---------//
 Route::get('/reg/fee/view','Backend\Student\RegistrationFeeController@view')->name('student.reg.fee.view');
-Route::get('/reg/get-student','Backend\Student\RegistrationFeeController@getStudent')->name('student.reg.fee.get-student');
+Route::get('/reg/fee/get-student','Backend\Student\RegistrationFeeController@getStudent')->name('student.reg.fee.get-student');
 Route::get('/reg/fee/payslif','Backend\Student\RegistrationFeeController@payslif')->name('student.reg.fee.payslif');
+
+
+//------student Registration fee---------//
+Route::get('/reg/monthly/view','Backend\Student\MonthlyFeeController@view')->name('student.monthly.fee.view');
+Route::get('/reg/monthly/get-student','Backend\Student\MonthlyFeeController@getStudent')->name('student.monthly.fee.get-student');
+Route::get('/reg/monthly/payslif','Backend\Student\MonthlyFeeController@payslif')->name('student.monthly.fee.payslif');
+
+
+
+//------student Registration fee---------//
+Route::get('/reg/exam/view','Backend\Student\ExamFeeController@view')->name('student.exam.fee.view');
+Route::get('/reg/exam/get-student','Backend\Student\ExamFeeController@getStudent')->name('student.exam.fee.get-student');
+Route::get('/reg/exam/payslif','Backend\Student\ExamFeeController@payslif')->name('student.exam.fee.payslif');
 
 
 
