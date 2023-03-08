@@ -98,7 +98,7 @@
             <td>{{ $value['year']['name'] }}</td>
             <td>{{ $value['student_class']['name'] }}</td>
             @if(Auth::user()->role=="Admin")
-             <th>{{ $value['student']['code'] }}</th>
+             <td>{{ $value['student']['code'] }}</td>
             @endif
             <td>
              <img class="img-fluid" src="{{ (!empty($value['student']['image']))?url('upload/student_images/'.$value['student']['image']):url('upload/No-image.jpg')}}" style="height:70px; width:80px;"></td>

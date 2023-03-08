@@ -165,10 +165,17 @@ Route::get('/reg/exam/view','Backend\Student\ExamFeeController@view')->name('stu
 Route::get('/reg/exam/get-student','Backend\Student\ExamFeeController@getStudent')->name('student.exam.fee.get-student');
 Route::get('/reg/exam/payslif','Backend\Student\ExamFeeController@payslif')->name('student.exam.fee.payslif');
 
+});
 
 
-
-
+Route::prefix('employees')->group(function()
+{
+Route::get('/reg/view','Backend\Employee\EmpoyeeRegController@view')->name('employees.reg.view');
+Route::get('/reg/add','Backend\Employee\EmpoyeeRegController@add')->name('employees.reg.add');
+Route::post('/reg/store','Backend\Employee\EmpoyeeRegController@store')->name('employees.reg.store');
+Route::get('/reg/edit/{id}','Backend\Employee\EmpoyeeRegController@edit')->name('employees.reg.edit');
+Route::post('/reg/update/{id}','Backend\Employee\EmpoyeeRegController@update')->name('employees.reg.update');
+Route::get('/reg/delete/{id}','Backend\Employee\EmpoyeeRegController@delete')->name('employees.reg.delete');
 });
 
 
