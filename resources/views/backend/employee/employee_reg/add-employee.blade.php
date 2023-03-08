@@ -117,18 +117,22 @@
              </select>
              <font style="color:red">{{($errors->has('designation_id'))?($errors->first('designation_id')):'' }}</font>
             </div>
-
+            
+            @if(!@$editdata)
             <div class="form-group col-md-4">
              <label for="join_date">Join Date <font style="color:red">*</font> </label>
              <input type="date" name="join_date" class="form-control form-control-sm" value="{{ @$editdata->join_date }}" id="datepicker" autocomplete="off">
              <font style="color:red">{{($errors->has('join_date'))?($errors->first('join_date')):'' }}</font>
             </div>
+            @endif
 
+           @if(!@$editdata)
             <div class="form-group col-md-4">
              <label for="salary">Salary <font style="color:red">*</font> </label>
              <input type="text" name="salary" class="form-control form-control-sm" value="{{@$editdata->salary }}">
              <font style="color:red">{{($errors->has('salary'))?($errors->first('salary')):'' }}</font>
             </div>
+            @endif
 
              <div class="form-group col-md-2">
               <label for="image">Image</label>
@@ -137,7 +141,7 @@
              </div>
 
              <div class="form-group col-md-2">
-              <img id="showImage" src="{{ (!empty($editdata->image))?url('upload/student_images/'.$editdata->image):url('upload/No-image.jpg')}}" style="width:100px; height:100px; border:1px solid #ccc;">
+              <img id="showImage" src="{{ (!empty($editdata->image))?url('upload/employee_image/'.$editdata->image):url('upload/No-image.jpg')}}" style="width:100px; height:100px; border:1px solid #ccc;">
              </div>
            </div>
              <button type="submit" class="btn btn-primary">{{(@$editdata)?'Update':'Submit'}}</button>

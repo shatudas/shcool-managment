@@ -176,6 +176,8 @@ Route::post('/reg/store','Backend\Employee\EmpoyeeRegController@store')->name('e
 Route::get('/reg/edit/{id}','Backend\Employee\EmpoyeeRegController@edit')->name('employees.reg.edit');
 Route::post('/reg/update/{id}','Backend\Employee\EmpoyeeRegController@update')->name('employees.reg.update');
 Route::get('/reg/delete/{id}','Backend\Employee\EmpoyeeRegController@delete')->name('employees.reg.delete');
+Route::get('/reg/detalis/{id}','Backend\Employee\EmpoyeeRegController@detalis')->name('employees.reg.detalis');
+
 });
 
 

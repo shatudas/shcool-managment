@@ -72,7 +72,8 @@
                 @endif
                 <td>
                  <a title="Edit" href="{{route('employees.reg.edit',$value->id)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
-                 <a href="" id="deleteButton" class="btn btn-sm btn-danger" data-id="{{$value->id}}"><i class="fa fa-trash"></i></a>
+                 <a title="Detalis" target="_blank" href="{{route('employees.reg.detalis',$value->id)}}" class="btn btn-sm btn-success" ><i class="fa fa-eye"></i></a>
+                 {{-- <a href="" id="deleteButton" class="btn btn-sm btn-danger" data-id="{{$value->id}}"><i class="fa fa-trash"></i></a> --}}
                 </td>
                </tr>
               @endforeach
