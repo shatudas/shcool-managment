@@ -165,6 +165,12 @@ $route = Route::current()->getName();
        <p>Empolyee Registration</p>
       </a>
      </li>
+     <li class="nav-item">
+      <a href="{{route('employees.salary.view')}}" class="nav-link  {{($route=='employees.salary.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Empolyee Salary</p>
+      </a>
+     </li>
     </ul>
    </li>
   

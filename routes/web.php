@@ -170,6 +170,7 @@ Route::get('/reg/exam/payslif','Backend\Student\ExamFeeController@payslif')->nam
 
 Route::prefix('employees')->group(function()
 {
+//-----employee reg----//
 Route::get('/reg/view','Backend\Employee\EmpoyeeRegController@view')->name('employees.reg.view');
 Route::get('/reg/add','Backend\Employee\EmpoyeeRegController@add')->name('employees.reg.add');
 Route::post('/reg/store','Backend\Employee\EmpoyeeRegController@store')->name('employees.reg.store');
@@ -177,6 +178,14 @@ Route::get('/reg/edit/{id}','Backend\Employee\EmpoyeeRegController@edit')->name(
 Route::post('/reg/update/{id}','Backend\Employee\EmpoyeeRegController@update')->name('employees.reg.update');
 Route::get('/reg/delete/{id}','Backend\Employee\EmpoyeeRegController@delete')->name('employees.reg.delete');
 Route::get('/reg/detalis/{id}','Backend\Employee\EmpoyeeRegController@detalis')->name('employees.reg.detalis');
+
+//------employee salary------//
+Route::get('/salary/view','Backend\Employee\EmpoyeeSalaryController@view')->name('employees.salary.view');
+Route::get('/salary/increment/{id}','Backend\Employee\EmpoyeeSalaryController@increment')->name('employees.salary.increment');
+Route::post('/salary/store/{id}','Backend\Employee\EmpoyeeSalaryController@store')->name('employees.salary.store');
+Route::get('/salary/delete/{id}','Backend\Employee\EmpoyeeSalaryController@delete')->name('employees.salary.delete');
+Route::get('/salary/detalis/{id}','Backend\Employee\EmpoyeeSalaryController@detalis')->name('employees.salary.detalis');
+
 
 });
 
