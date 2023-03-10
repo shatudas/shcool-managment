@@ -186,6 +186,15 @@ Route::post('/salary/store/{id}','Backend\Employee\EmpoyeeSalaryController@store
 Route::get('/salary/delete/{id}','Backend\Employee\EmpoyeeSalaryController@delete')->name('employees.salary.delete');
 Route::get('/salary/detalis/{id}','Backend\Employee\EmpoyeeSalaryController@detalis')->name('employees.salary.detalis');
 
+//------employee leave------//
+Route::get('/leave/view','Backend\Employee\EmpoyeeLeaveController@view')->name('employees.leave.view');
+Route::get('/leave/add','Backend\Employee\EmpoyeeLeaveController@add')->name('employees.leave.add');
+Route::post('/leave/store','Backend\Employee\EmpoyeeLeaveController@store')->name('employees.leave.store');
+Route::get('/leave/edit/{id}','Backend\Employee\EmpoyeeLeaveController@edit')->name('employees.leave.edit');
+Route::post('/leave/update/{id}','Backend\Employee\EmpoyeeLeaveController@update')->name('employees.leave.update');
+Route::get('/leave/delete/{id}','Backend\Employee\EmpoyeeLeaveController@delete')->name('employees.leave.delete');
+Route::get('/leave/detalis/{id}','Backend\Employee\EmpoyeeLeaveController@detalis')->name('employees.leave.detalis');
+
 
 });
 

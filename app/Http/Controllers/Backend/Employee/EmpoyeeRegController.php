@@ -14,7 +14,6 @@ use App\Model\Year;
 use App\Model\EmployreeSalaryLog;
 use App\Model\designation;
 use DB;
-
 use PDF;
 
 
