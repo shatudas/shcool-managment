@@ -196,6 +196,17 @@ Route::get('/leave/delete/{id}','Backend\Employee\EmpoyeeLeaveController@delete'
 Route::get('/leave/detalis/{id}','Backend\Employee\EmpoyeeLeaveController@detalis')->name('employees.leave.detalis');
 
 
+
+//------employee attendance------//
+Route::get('attendance/view','Backend\Employee\EmpoyeeAttendanceController@view')->name('employees.attendance.view');
+Route::get('attendance/add','Backend\Employee\EmpoyeeAttendanceController@add')->name('employees.attendance.add');
+Route::post('attendance/store','Backend\Employee\EmpoyeeAttendanceController@store')->name('employees.attendance.store');
+Route::get('attendance/edit/{id}','Backend\Employee\EmpoyeeAttendanceController@edit')->name('employees.attendance.edit');
+Route::post('attendance/update/{id}','Backend\Employee\EmpoyeeAttendanceController@update')->name('employees.attendance.update');
+Route::get('attendance/delete/{id}','Backend\Employee\EmpoyeeAttendanceController@delete')->name('employees.attendance.delete');
+Route::get('attendance/detalis/{id}','Backend\Employee\EmpoyeeAttendanceController@detalis')->name('employees.attendance.detalis');
+
+
 });
 
 
