@@ -29,36 +29,36 @@
         <div class="card">
 
          <div class="card-header">
-          <h3>Employee Attendance List
-           <a href="{{route('employees.attendance.add')}}" class=" btn btn-success btn-sm float-right"> <i class="fa fa-plus-circle"></i> Add Employee Attendance</a>
+          <h3>Employee Attendance Detalis
+           <a href="{{route('employees.attendance.view')}}" class=" btn btn-success btn-sm float-right"> <i class="fa fa-list"></i> Employee Attendance list</a>
           </h3>
          </div>
 
          <!-- /.card-header -->
          <div class="card-body">
 
-          <table id="example1" class="table table-bordered table-striped">    
+         <table id="example1" class="table table-bordered table-striped">    
            <thead>
             <tr>
              <th>SL</th>
+             <th>ID</th>
+             <th>Name</th>
              <th>Date</th>
-             <th>Action</th>
+             <th>Attend Status</th>
             </tr>
            </thead>
            <tbody>
-            @foreach($alldata as $key => $value)
+            @foreach($detalis as $key => $value)
              <tr>
               <td>{{ $key+1 }}</td>
+              <td>{{ $value['user']['id_no'] }}</td>
+              <td>{{ $value['user']['name'] }}</td>
               <td>{{ date('d-m-Y',strtotime($value->date)) }}</td>
-                
-              <td>
-               <a title="Edit" href="{{route('employees.attendance.edit',$value->date)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
-               <a title="Edit" href="{{route('employees.attendance.detalis',$value->date)}}" class="btn btn-sm btn-info" ><i class="fa fa-eye"></i></a>
-              </td>
+              <td>{{ $value->attend_status }}</td>
              </tr>
             @endforeach
            </tbody>
-          </table>
+         </table>
 
          </div>
 
