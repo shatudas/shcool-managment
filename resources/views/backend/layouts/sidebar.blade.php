@@ -191,6 +191,21 @@ $route = Route::current()->getName();
      </li>
     </ul>
    </li>
+
+   <li class="nav-item has-treeview {{($prefix=='/marks')?'menu-open':''}}">
+    <a href="#" class="nav-link">
+     <i class="nav-icon fas fa-copy"></i>
+     <p> Marks Manage <i class="fas fa-angle-left right"></i><span class=""></span></p>
+    </a>
+    <ul class="nav nav-treeview ">
+     <li class="nav-item">
+      <a href="{{route('marks.add')}}" class="nav-link  {{($route=='marks.add')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Marks Entry</p>
+      </a>
+     </li>
+    </ul>
+   </li>
   
   </ul>
  </nav>

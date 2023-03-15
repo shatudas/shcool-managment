@@ -21,7 +21,6 @@
         $where[] = ['date','like',$date.'%'];
       }
 
-
       $tatalattend = App\Model\EmployeeAttendance::with(['user'])->where($where)->where('employee_id',$totalattendgroupbyid['0']->employee_id)->get();
       $singleSalary = (float)$totalattendgroupbyid['0']['user']['salary'];
       $salaryparday = (float)$singleSalary/30;
@@ -30,8 +29,6 @@
       $totalsalary = (float)$singleSalary-(float)$totalsalaryminus;
    
       @endphp
-
-
 
      
      <div class="col-12" align="center">

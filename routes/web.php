@@ -193,7 +193,6 @@ Route::post('/leave/update/{id}','Backend\Employee\EmpoyeeLeaveController@update
 Route::get('/leave/delete/{id}','Backend\Employee\EmpoyeeLeaveController@delete')->name('employees.leave.delete');
 Route::get('/leave/detalis/{id}','Backend\Employee\EmpoyeeLeaveController@detalis')->name('employees.leave.detalis');
 
-
 //------employee attendance------//
 Route::get('attendance/view','Backend\Employee\EmpoyeeAttendanceController@view')->name('employees.attendance.view');
 Route::get('attendance/add','Backend\Employee\EmpoyeeAttendanceController@add')->name('employees.attendance.add');
@@ -208,9 +207,22 @@ Route::get('monthly/monthly/view','Backend\Employee\MonthlySaratyController@view
 Route::get('monthly/salary/get','Backend\Employee\MonthlySaratyController@getsalary')->name('employees.monthly.salary.get');
 Route::get('monthly/salary/payslip{employee_id}','Backend\Employee\MonthlySaratyController@payslip')->name('employees.monthly.salary.payslip');
 
+});
+
+
+Route::prefix('marks')->group(function()
+{
+//-----employee reg----//
+Route::get('/marks/add','Backend\Marks\MarksController@add')->name('marks.add');
+Route::post('/marks/store','Backend\Marks\MarksController@store')->name('marks.store');
+
 
 
 });
+
+Route::get('/get-student','Backend\defaultController@getstudent')->name('get-student');
+Route::get('/get-subject','Backend\defaultController@getsubject')->name('get-subject');
+
 
 
 
