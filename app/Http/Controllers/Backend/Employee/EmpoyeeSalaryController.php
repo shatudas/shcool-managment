@@ -16,6 +16,7 @@ use App\Model\designation;
 use DB;
 use PDF;
 
+
 class EmpoyeeSalaryController extends Controller
 {
 

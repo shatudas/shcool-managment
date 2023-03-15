@@ -203,6 +203,12 @@ Route::post('attendance/update/{id}','Backend\Employee\EmpoyeeAttendanceControll
 Route::get('attendance/delete/{id}','Backend\Employee\EmpoyeeAttendanceController@delete')->name('employees.attendance.delete');
 Route::get('attendance/detalis/{date}','Backend\Employee\EmpoyeeAttendanceController@detalis')->name('employees.attendance.detalis');
 
+//------employee monthly------//
+Route::get('monthly/monthly/view','Backend\Employee\MonthlySaratyController@view')->name('employees.monthly.salary.view');
+Route::get('monthly/salary/get','Backend\Employee\MonthlySaratyController@getsalary')->name('employees.monthly.salary.get');
+Route::get('monthly/salary/payslip{employee_id}','Backend\Employee\MonthlySaratyController@payslip')->name('employees.monthly.salary.payslip');
+
+
 
 });
 
