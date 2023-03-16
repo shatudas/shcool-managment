@@ -8,6 +8,7 @@ use App\Model\StduentClass;
 use App\Model\Subject;
 use App\Model\AssingSubject;
 use DB;
+use Auth;
 
 class AssingSubjecCtontroller extends Controller
 {
@@ -62,17 +63,22 @@ class AssingSubjecCtontroller extends Controller
    }
    else
     {
-     AssingSubject::where('class_id',$class_id)->delete();
-     $subjectCount = count($Request->subject_id);
-     for ($i=0; $i <$subjectCount ; $i++) { 
-     $assinfSub = new AssingSubject();
-     $assinfSub->class_id   = $Request->class_id;
-     $assinfSub->subject_id = $Request->subject_id[$i];
-     $assinfSub->full_mark  = $Request->full_mark[$i];
-     $assinfSub->pass_work  = $Request->pass_work[$i];
-     $assinfSub->get_work   = $Request->get_work[$i];
-     $assinfSub->save();
-     }
+      AssingSubject::whereNotIn('subject_id',$Request->subject_id)->where('class_id',$Request->class_id)->delete();
+      foreach($Request->subject_id as $key =>$value){
+        $assing_subject_exist = AssingSubject::where('subject_id',$Request->subject_id[$key])->where('class_id',$Request->class_id)->first();
+        if($assing_subject_exist){
+          $assing_subject = $assing_subject_exist;
+        }else{
+          $assing_subject = new AssingSubject();  
+        }
+         $assing_subject->class_id   = $Request->class_id;
+         $assing_subject->subject_id = $Request->subject_id[$key];
+         $assing_subject->full_mark  = $Request->full_mark[$key];
+         $assing_subject->pass_work  = $Request->pass_work[$key];
+         $assing_subject->get_work   = $Request->get_work[$key];
+         $assing_subject->updated_by = Auth::user()->id;
+
+      }
     }
    return redirect()->route('setups.assing.subject.view')->with('success','Data Updated Successfully');
 

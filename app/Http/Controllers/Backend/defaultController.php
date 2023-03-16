@@ -18,18 +18,18 @@ use PDF;
 
 class defaultController extends Controller
 {
-    public function getstudent(Request $request){
-    	$yesr_id = $request->yesr_id;
-    	$class_id = $request->class_id;
-    	$allData = AssingStudent::with('student')->where('yesr_id',$yesr_id)->where('class_id',$class_id)->get();
-    	return response()->json($allData);
-    }
+ public function getstudent(Request $request){
+  $yesr_id = $request->yesr_id;
+  $class_id = $request->class_id;
+  $allData = AssingStudent::with('student')->where('yesr_id',$yesr_id)->where('class_id',$class_id)->get();
+  return response()->json($allData);
+ }
 
-    public function getsubject(Request $request){
-    	$class_id = $request->class_id;
-    	$allData=  AssingSubject::with(['subject'])->where('class_id',$class_id)->get();
-    	return response()->json($allData);
-    }
+ public function getsubject(Request $request){
+  $class_id = $request->class_id;
+  $allData=  AssingSubject::with(['subject'])->where('class_id',$class_id)->get();
+  return response()->json($allData);
+ }
 
 
 

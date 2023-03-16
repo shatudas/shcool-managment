@@ -8,12 +8,12 @@
     <div class="container-fluid">
      <div class="row mb-2">
       <div class="col-sm-6">
-       <h1 class="m-0">Manage Maeks Entry</h1>
+       <h1 class="m-0">Manage Maeks Edit</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
        <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active">Maeks Entry</li>
+        <li class="breadcrumb-item active">Maeks Edit</li>
        </ol>
       </div><!-- /.col -->
      </div><!-- /.row -->
@@ -31,15 +31,15 @@
         <h3>Search Critetia</h3>
        </div>
 
-       <form method="post"  action="{{ Route('marks.store') }}" id="myForm">
+       <form method="post"  action="{{ Route('marks.update') }}" id="myForm">
          @csrf
 
         <div  class="card-body">
        
          <div class="form-row">
           <div class="form-group col-md-3">
-           <label for="yesr_id">Year <font style="color:red">*</font> </label>
-           <select name="year_id" id="yesr_id" class="form-control form-control-sm">
+           <label for="year_id">Year <font style="color:red">*</font> </label>
+           <select name="year_id" id="year_id" class="form-control form-control-sm">
             <option value=""> Select Year</option>
             @foreach($years as $year)
              <option value="{{ $year->id }}">{{ $year->name }}</option>
@@ -101,7 +101,7 @@
             <tbody id="marks-enrty-tr">  
             </tbody>
            </table>
-           <button type="submit" class="btn btn-success"> Submit </button>
+           <button type="submit" class="btn btn-success"> Update </button>
           </div>  
          </div>
         </div>
@@ -126,13 +126,13 @@
   <script type="text/javascript">
    $(document).on('click','#search',function(event){
     event.preventDefault();
-    var yesr_id = $('#yesr_id').val();
+    var year_id = $('#year_id').val();
     var class_id = $('#class_id').val();
     var assign_subject_id = $('#assign_subject_id').val();
     var exam_type_id = $('#exam_type_id').val();
     $('.notifyjs-corner').html('');
 
-    if(yesr_id == ''){
+    if(year_id == ''){
      $.notify("Year required", {globalPosition: 'top right',className: 'error'});
      return false;
     }
@@ -152,12 +152,12 @@
     } 
 
     $.ajax({
-     url: "{{route('get-student')}}",
+     url: "{{route('getstudentmarks')}}",
      type: "GET",
-     data: {'yesr_id':yesr_id, 'class_id':class_id},
+     data: {'year_id':year_id, 'class_id':class_id, 'assign_subject_id':assign_subject_id, 'exam_type_id':exam_type_id },
      success: function(data){
       console.log(data)
-      $('#marks-enrty').removeClass('d-none');
+      $('#marks-enrty').removeClass('d-none'); 
       var html = '';
 
       $.each(data, function(key,v){
@@ -167,7 +167,7 @@
         '<td>'+ v.student.name+'</td>'+
         '<td>'+ v.student.fname+'</td>'+
         '<td>'+ v.student.gender+'</td>'+
-        '<td><input type="text" class="form-control form-control-sm" name="marks[]"></td>'+
+        '<td><input type="text" class="form-control form-control-sm" name="marks[]" value="'+v.marks+'"></td>'+
        '</tr>';
         });
         $('#marks-enrty-tr').html(html);

@@ -215,11 +215,15 @@ Route::prefix('marks')->group(function()
 //-----employee reg----//
 Route::get('/marks/add','Backend\Marks\MarksController@add')->name('marks.add');
 Route::post('/marks/store','Backend\Marks\MarksController@store')->name('marks.store');
-
+Route::get('/marks/edit','Backend\Marks\MarksController@edit')->name('marks.edit');
+Route::get('/getstudentmarks','Backend\Marks\MarksController@getstudentmarks')->name('getstudentmarks');
+Route::post('/marks/update','Backend\Marks\MarksController@update')->name('marks.update');
 
 
 });
 
+
+//-----defaultController----//
 Route::get('/get-student','Backend\defaultController@getstudent')->name('get-student');
 Route::get('/get-subject','Backend\defaultController@getsubject')->name('get-subject');
 
