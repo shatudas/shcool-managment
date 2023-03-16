@@ -210,6 +210,12 @@ $route = Route::current()->getName();
        <p>Marks Edit</p>
       </a>
      </li>
+     <li class="nav-item">
+      <a href="{{route('grade.view')}}" class="nav-link  {{($route=='grade.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Grade Point</p>
+      </a>
+     </li>
     </ul>
    </li>
   

@@ -220,6 +220,13 @@ Route::get('/getstudentmarks','Backend\Marks\MarksController@getstudentmarks')->
 Route::post('/marks/update','Backend\Marks\MarksController@update')->name('marks.update');
 
 
+Route::get('/grade/view','Backend\Marks\GradeController@view')->name('grade.view');
+Route::get('/grade/add','Backend\Marks\GradeController@add')->name('grade.add');
+Route::post('/grade/store','Backend\Marks\GradeController@store')->name('grade.store');
+Route::get('/grade/edit/{id}','Backend\Marks\GradeController@edit')->name('grade.edit');
+Route::post('/grade/update/{id}','Backend\Marks\GradeController@update')->name('grade.update');
+
+
 });
 
 
