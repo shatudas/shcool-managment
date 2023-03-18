@@ -24,9 +24,7 @@ class StudentFeeController extends Controller
    	return view('backend.account.student.fee-view',$data);
    }
 
-   public function add(){
-   
-    
+   public function add(){ 
     $data['years'] = Year::orderBy('id','desc')->get();
     $data['classs'] = StduentClass::all();
     $data['fee_categorys'] = FeeCategory::all();
@@ -77,7 +75,7 @@ class StudentFeeController extends Controller
 
     $html[$key]['tdsource'] .= '<td>'.'<input type="text" name="amount[]" value="'.$finalfee.'" class="form-control" readonly>'.'</td>';
 
-    $html[$key]['tdsource'] .= '<td>'.'<input type="hidden" name="student_id[]" value="'.$std->student_id.'">'.'<input type="checkbox" name="checkmanage[]" value="'.$key.'" style="transform:scale(1.5);margin-left:10px;">'.'</td>';
+    $html[$key]['tdsource'] .= '<td>'.'<input type="hidden" name="student_id[]" value="'.$std->student_id.'">'.'<input type="checkbox" name="checkmanage[]" value="'.$key.'" '.$checked.' style="transform:scale(1.5);margin-left:10px;">'.'</td>';
 
    }
    return response()->json(@$html);
@@ -85,6 +83,7 @@ class StudentFeeController extends Controller
 
 
    public function store(Request $request){
+
 
     $date =date('Y-m',strtotime($request->date));
     AccountStudentFee::where('year_id',$request->year_id)->where('class_id',$request->class_id)->where('fee_category_id',$request->fee_category_id)->where('date',$date)->delete();

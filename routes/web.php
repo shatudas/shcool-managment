@@ -238,6 +238,13 @@ Route::get('/student/fee/add','Backend\Account\StudentFeeController@add')->name(
 Route::post('/student/fee/store','Backend\Account\StudentFeeController@store')->name('student.fee.store');
 Route::get('/student/fee/getstudent','Backend\Account\StudentFeeController@getStudent')->name('student.fee.getstudent');
 
+
+//-----Employee Salary-------//
+Route::get('/employee/salary/view','Backend\Account\EmployeeSalaryController@view')->name('account.salary.view');
+Route::get('/employee/salary/add','Backend\Account\EmployeeSalaryController@add')->name('account.salary.add');
+Route::post('/employee/salary/store','Backend\Account\EmployeeSalaryController@store')->name('account.salary.store');
+Route::get('/employee/salary/getstudent','Backend\Account\EmployeeSalaryController@getStudent')->name('account.salary.getstudent');
+
 });
 
 
