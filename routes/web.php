@@ -219,13 +219,24 @@ Route::get('/marks/edit','Backend\Marks\MarksController@edit')->name('marks.edit
 Route::get('/getstudentmarks','Backend\Marks\MarksController@getstudentmarks')->name('getstudentmarks');
 Route::post('/marks/update','Backend\Marks\MarksController@update')->name('marks.update');
 
-
+//-----grade----//
 Route::get('/grade/view','Backend\Marks\GradeController@view')->name('grade.view');
 Route::get('/grade/add','Backend\Marks\GradeController@add')->name('grade.add');
 Route::post('/grade/store','Backend\Marks\GradeController@store')->name('grade.store');
 Route::get('/grade/edit/{id}','Backend\Marks\GradeController@edit')->name('grade.edit');
 Route::post('/grade/update/{id}','Backend\Marks\GradeController@update')->name('grade.update');
 
+
+});
+
+
+Route::prefix('account')->group(function()
+{
+//-----student fee-------//
+Route::get('/student/fee/view','Backend\Account\StudentFeeController@view')->name('student.fee.view');
+Route::get('/student/fee/add','Backend\Account\StudentFeeController@add')->name('student.fee.add');
+Route::post('/student/fee/store','Backend\Account\StudentFeeController@store')->name('student.fee.store');
+Route::get('/student/fee/getstudent','Backend\Account\StudentFeeController@getStudent')->name('student.fee.getstudent');
 
 });
 

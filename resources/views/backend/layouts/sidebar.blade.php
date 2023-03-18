@@ -218,6 +218,21 @@ $route = Route::current()->getName();
      </li>
     </ul>
    </li>
+
+   <li class="nav-item has-treeview {{($prefix=='/account')?'menu-open':''}}">
+    <a href="#" class="nav-link">
+     <i class="nav-icon fas fa-copy"></i>
+     <p> Accounts Manage <i class="fas fa-angle-left right"></i><span class=""></span></p>
+    </a>
+    <ul class="nav nav-treeview ">
+     <li class="nav-item">
+      <a href="{{route('student.fee.view')}}" class="nav-link  {{($route=='student.fee.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Student Fee</p>
+      </a>
+     </li>
+    </ul>
+   </li>
   
   </ul>
  </nav>
