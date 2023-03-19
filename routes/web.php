@@ -245,6 +245,13 @@ Route::get('/employee/salary/add','Backend\Account\EmployeeSalaryController@add'
 Route::post('/employee/salary/store','Backend\Account\EmployeeSalaryController@store')->name('account.salary.store');
 Route::get('/employee/salary/getstudent','Backend\Account\EmployeeSalaryController@getStudent')->name('account.salary.getstudent');
 
+//-----Other Cost----------//
+Route::get('/cost/view','Backend\Account\OtherCostController@view')->name('account.cost.view');
+Route::get('/cost/add','Backend\Account\OtherCostController@add')->name('account.cost.add');
+Route::post('/cost/store','Backend\Account\OtherCostController@store')->name('account.cost.store');
+Route::get('/cost/edit/{id}','Backend\Account\OtherCostController@edit')->name('account.cost.edit');
+Route::post('/cost/update/{id}','Backend\Account\OtherCostController@update')->name('account.cost.update');
+
 });
 
 

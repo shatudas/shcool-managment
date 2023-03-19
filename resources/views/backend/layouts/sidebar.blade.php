@@ -237,6 +237,12 @@ $route = Route::current()->getName();
        <p>Employee Salary </p>
       </a>
      </li>
+     <li class="nav-item">
+      <a href="{{route('account.cost.view')}}" class="nav-link  {{($route=='account.cost.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Other Cost</p>
+      </a>
+     </li>
     </ul>
    </li>
   
