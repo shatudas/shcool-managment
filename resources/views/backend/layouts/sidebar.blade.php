@@ -245,6 +245,24 @@ $route = Route::current()->getName();
      </li>
     </ul>
    </li>
+
+
+   <li class="nav-item has-treeview {{($prefix=='/report')?'menu-open':''}}">
+    <a href="#" class="nav-link">
+     <i class="nav-icon fas fa-copy"></i>
+     <p> Report Manage <i class="fas fa-angle-left right"></i><span class=""></span></p>
+    </a>
+    <ul class="nav nav-treeview ">
+     <li class="nav-item">
+      <a href="{{route('report.profit.view')}}" class="nav-link  {{($route=='report.profit.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>mothly Report</p>
+      </a>
+     </li>
+    
+    </ul>
+   </li>
+  
   
   </ul>
  </nav>

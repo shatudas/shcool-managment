@@ -255,6 +255,15 @@ Route::post('/cost/update/{id}','Backend\Account\OtherCostController@update')->n
 });
 
 
+//-----report prefix----------//
+Route::prefix('report')->group(function()
+{
+Route::get('/profit/view','Backend\Report\ProfitController@view')->name('report.profit.view');
+Route::get('/profit/get','Backend\Report\ProfitController@profit')->name('report.profit.get');
+Route::get('/profit/pdf','Backend\Report\ProfitController@PDF')->name('report.profit.pdf');
+});
+
+
 //-----defaultController----//
 Route::get('/get-student','Backend\defaultController@getstudent')->name('get-student');
 Route::get('/get-subject','Backend\defaultController@getsubject')->name('get-subject');
