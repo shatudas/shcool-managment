@@ -258,9 +258,21 @@ Route::post('/cost/update/{id}','Backend\Account\OtherCostController@update')->n
 //-----report prefix----------//
 Route::prefix('report')->group(function()
 {
+//------profit----//
 Route::get('/profit/view','Backend\Report\ProfitController@view')->name('report.profit.view');
 Route::get('/profit/get','Backend\Report\ProfitController@profit')->name('report.profit.get');
 Route::get('/profit/pdf','Backend\Report\ProfitController@PDF')->name('report.profit.pdf');
+
+//------marksheet------//
+Route::get('/marksheet/view','Backend\Report\ProfitController@marksheetview')->name('report.marksheet.view');
+Route::get('/marksheet/get','Backend\Report\ProfitController@marksheetget')->name('report.marksheet.get');
+
+
+//-----Attendance-----//
+Route::get('/attendance/view','Backend\Report\AttendanceController@view')->name('report.attendance.view');
+Route::get('/attendance/get','Backend\Report\AttendanceController@get')->name('report.attendance.get');
+
+
 });
 
 
