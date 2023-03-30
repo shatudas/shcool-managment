@@ -265,10 +265,16 @@ $route = Route::current()->getName();
        <p>Marksheet</p>
       </a>
      </li>
-      <li class="nav-item">
+     <li class="nav-item">
       <a href="{{route('report.attendance.view')}}" class="nav-link  {{($route=='report.attendance.view')?'active':''}}">
        <i class="far fa-circle nav-icon"></i>
        <p>Attendance Report</p>
+      </a>
+     </li>
+     <li class="nav-item">
+      <a href="{{route('report.result.view')}}" class="nav-link  {{($route=='report.result.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Student Result</p>
       </a>
      </li>
     

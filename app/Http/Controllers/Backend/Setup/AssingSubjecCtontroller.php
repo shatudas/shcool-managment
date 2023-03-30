@@ -37,6 +37,8 @@ class AssingSubjecCtontroller extends Controller
    $assinfSub->full_mark = $Request->full_mark[$i];
    $assinfSub->pass_work = $Request->pass_work[$i];
    $assinfSub->get_work = $Request->get_work[$i];
+
+ 
    $assinfSub->save();
     }
     }

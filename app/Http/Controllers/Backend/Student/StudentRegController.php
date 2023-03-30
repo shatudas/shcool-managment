@@ -116,7 +116,7 @@ class StudentRegController extends Controller
 
       $assing_student = new  AssingStudent();
       $assing_student->student_id = $user->id;
-      $assing_student->yesr_id = $request->yesr_id;
+      $assing_student->yesr_id   = $request->yesr_id;
     	 $assing_student->class_id = $request->class_id;
     	 $assing_student->group_id = $request->group_id;
     	 $assing_student->shift_id = $request->shift_id;

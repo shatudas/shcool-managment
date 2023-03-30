@@ -273,6 +273,11 @@ Route::get('/attendance/view','Backend\Report\AttendanceController@view')->name(
 Route::get('/attendance/get','Backend\Report\AttendanceController@get')->name('report.attendance.get');
 
 
+//-----result-----//
+Route::get('/report/result/view','Backend\Report\ResultController@view')->name('report.result.view');
+Route::get('/report/result/get','Backend\Report\ResultController@get')->name('report.result.get');
+
+
 });
 
 
