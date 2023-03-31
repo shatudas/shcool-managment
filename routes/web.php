@@ -277,6 +277,10 @@ Route::get('/attendance/get','Backend\Report\AttendanceController@get')->name('r
 Route::get('/report/result/view','Backend\Report\ResultController@view')->name('report.result.view');
 Route::get('/report/result/get','Backend\Report\ResultController@get')->name('report.result.get');
 
+//-----student ID card-----//
+Route::get('/report/id-card/view','Backend\Report\IdCardController@view')->name('report.id-card.view');
+Route::get('/report/id-card/get','Backend\Report\IdCardController@get')->name('report.id-card.get');
+
 
 });
 

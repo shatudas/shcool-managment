@@ -37,7 +37,9 @@ class ResultController extends Controller
     	$pdf = PDF::loadView('backend.report.result-pdf', $data);
 					$pdf->SetProtection(['copy', 'print'], '', 'pass');
 					return $pdf->stream('document.pdf');
-				}
+				}else{
+      return redirect()->back()->with('error','Sorry ! Criteria dose not match !');
+    }
    }
 
 }

@@ -277,6 +277,12 @@ $route = Route::current()->getName();
        <p>Student Result</p>
       </a>
      </li>
+     <li class="nav-item">
+      <a href="{{route('report.id-card.view')}}" class="nav-link  {{($route=='report.id-card.view')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>Student ID Card</p>
+      </a>
+     </li>
     
     </ul>
    </li>
