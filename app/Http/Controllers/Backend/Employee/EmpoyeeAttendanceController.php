@@ -27,6 +27,7 @@ class EmpoyeeAttendanceController extends Controller
 		 return view('backend.employee.employee_attendance.view-attendance',$data);
 	 }
 
+
 		public function add()
 		{
 			$data['employees'] = User::where('user_type','Employee')->get();
@@ -46,20 +47,21 @@ class EmpoyeeAttendanceController extends Controller
 				$attend->attend_status = $request->$attend_status;
 				$attend->save();
 			}
-		   return redirect()->route('employees.attendance.view')->with('success','Data Updated Successfully');
+		 return redirect()->route('employees.attendance.view')->with('success','Data Updated Successfully');
 		}
 
-		public function edit($date)
-				{
 
-					$data['editdata']= EmployeeAttendance::where('date',$date)->get();
-				 $data['employees'] = User::where('user_type','Employee')->get();
-			  return view('backend.employee.employee_attendance.add-attendance',$data);
-				}
+		public function edit($date)
+			{
+				$data['editdata']= EmployeeAttendance::where('date',$date)->get();
+				$data['employees'] = User::where('user_type','Employee')->get();
+			 return view('backend.employee.employee_attendance.add-attendance',$data);
+			}
 
 
 	 public function detalis($date){
-		   $data['detalis']= EmployeeAttendance::where('date',$date)->get();
-			  return view('backend.employee.employee_attendance.detalis-attendance',$data);
+		 $data['detalis']= EmployeeAttendance::where('date',$date)->get();
+			return view('backend.employee.employee_attendance.detalis-attendance',$data);
 	 }
-}
+
+ }

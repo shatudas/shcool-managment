@@ -24,10 +24,10 @@ class EmpoyeeLeaveController extends Controller
  
  public function view()
 	 {
-
 		$data['alldata'] = EmployeeLeave::orderBy('id','desc')->get();
 		return view('backend.employee.employee_leave.view-leave',$data);
 	 }
+
 
 		public function add()
 		{
@@ -40,10 +40,10 @@ class EmpoyeeLeaveController extends Controller
 		public function store(Request $request)
 		{
 			if($request->leave_parpose_id == '0'){
-					$leavepurpose = new LeaveParpas();
-					$leavepurpose->name = $request->name;
-					$leavepurpose->save();
-					$leave_parpose_id = $leavepurpose->id;
+				$leavepurpose = new LeaveParpas();
+				$leavepurpose->name = $request->name;
+				$leavepurpose->save();
+				$leave_parpose_id = $leavepurpose->id;
 			}else{
 				$leave_parpose_id = $request->leave_parpose_id;
 			}
@@ -53,25 +53,26 @@ class EmpoyeeLeaveController extends Controller
 	   $employee_leave->end_date = date('Y-m-d',strtotime($request->end_date));
 	   $employee_leave->leave_parpose_id = $leave_parpose_id;
 	   $employee_leave->save();
-				
-		   return redirect()->route('employees.leave.view')->with('success','Data Updated Successfully');
+		  return redirect()->route('employees.leave.view')->with('success','Data Updated Successfully');
 		}
 
+
 		public function edit($id)
-				{
-					$data['editdata']= EmployeeLeave::find($id);
-				 $data['employees'] = User::where('user_type','Employee')->get();
-				 $data['parpose'] = LeaveParpas::all();
-					return view('backend.employee.employee_leave.add-leave',$data);
-				}
+		 {
+				$data['editdata']= EmployeeLeave::find($id);
+				$data['employees'] = User::where('user_type','Employee')->get();
+				$data['parpose'] = LeaveParpas::all();
+				return view('backend.employee.employee_leave.add-leave',$data);
+			}
+
 
 	 public function update(Request $request,$id)
 	 {	
 			if($request->leave_parpose_id == '0'){
-					$leavepurpose = new LeaveParpas();
-					$leavepurpose->name = $request->name;
-					$leavepurpose->save();
-					$leave_parpose_id = $leavepurpose->id;
+				$leavepurpose = new LeaveParpas();
+				$leavepurpose->name = $request->name;
+				$leavepurpose->save();
+				$leave_parpose_id = $leavepurpose->id;
 			}else{
 				$leave_parpose_id = $request->leave_parpose_id;
 			}
@@ -81,17 +82,15 @@ class EmpoyeeLeaveController extends Controller
 	   $employee_leave->end_date = date('Y-m-d',strtotime($request->end_date));
 	   $employee_leave->leave_parpose_id = $leave_parpose_id;
 	   $employee_leave->save();
-				
-		   return redirect()->route('employees.leave.view')->with('success','Data Updated Successfully');
+				return redirect()->route('employees.leave.view')->with('success','Data Updated Successfully');
 	 }
 
 
-		
 	 public function detalis($id){
-		$data['detalis'] = User::find($id);
-		$pdf = PDF::loadView('backend.employee.employee_reg.Employee-detalis-pdf', $data);
-		$pdf->SetProtection(['copy', 'print'], '', 'pass');
-		return $pdf->stream('document.pdf');
+		 $data['detalis'] = User::find($id);
+		 $pdf = PDF::loadView('backend.employee.employee_reg.Employee-detalis-pdf', $data);
+		 $pdf->SetProtection(['copy', 'print'], '', 'pass');
+		 return $pdf->stream('document.pdf');
 	 }
 
 }

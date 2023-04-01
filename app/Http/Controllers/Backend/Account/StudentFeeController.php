@@ -18,27 +18,26 @@ use DB;
 use PDF;
 
 class StudentFeeController extends Controller
-{
-   public function view(){
-   	$data['alldata'] = AccountStudentFee::all();
-   	return view('backend.account.student.fee-view',$data);
-   }
+ {
+  public function view(){
+   $data['alldata'] = AccountStudentFee::all();
+   return view('backend.account.student.fee-view',$data);
+  }
 
-   public function add(){ 
-    $data['years'] = Year::orderBy('id','desc')->get();
-    $data['classs'] = StduentClass::all();
-    $data['fee_categorys'] = FeeCategory::all();
-    return view('backend.account.student.fee-add',$data);
-   }
+  public function add(){ 
+   $data['years'] = Year::orderBy('id','desc')->get();
+   $data['classs'] = StduentClass::all();
+   $data['fee_categorys'] = FeeCategory::all();
+   return view('backend.account.student.fee-add',$data);
+  }
 
 
-   public function getStudent(Request $request){
-
-    $year_id = $request->year_id;
-    $class_id = $request->class_id;
-    $fee_category_id = $request->fee_category_id;
-    $date = date('Y-m',strtotime($request->date));
-    $data = AssingStudent::with(['discount'])->where('yesr_id',$year_id)->where('class_id',$class_id)->get();
+  public function getStudent(Request $request){
+   $year_id = $request->year_id;
+   $class_id = $request->class_id;
+   $fee_category_id = $request->fee_category_id;
+   $date = date('Y-m',strtotime($request->date));
+   $data = AssingStudent::with(['discount'])->where('yesr_id',$year_id)->where('class_id',$class_id)->get();
   
    $html['thsource']  = '<th>ID NO</th>';
    $html['thsource'] .= '<th>Student Name</th>';
@@ -59,7 +58,6 @@ class StudentFeeController extends Controller
     }else{
      $checked='';
     }
-  
 
     $html[$key]['tdsource']  = '<td>'.$std['student']['id_no'].'<input type="hidden" name="fee_category_id" value="'.$fee_category_id.'">'.'</td>';
     $html[$key]['tdsource'] .= '<td>'.$std['student']['name'].'<input type="hidden" name="year_id" value="'.$std->year_id.'">'.'</td>';
@@ -67,7 +65,6 @@ class StudentFeeController extends Controller
     $html[$key]['tdsource'] .= '<td>'.$registrationfee->amount.'TK'.'<input type="hidden" name="date" value="'.$date.'">'.'</td>';
     $html[$key]['tdsource'] .= '<td>'.$std['discount']['discount'].'%'.'</td>';
    
-
     $orginalfee = $registrationfee->amount;
     $discount = $std['discount']['discount'];
     $Discounablefee = $discount/100*$orginalfee;
@@ -76,15 +73,12 @@ class StudentFeeController extends Controller
     $html[$key]['tdsource'] .= '<td>'.'<input type="text" name="amount[]" value="'.$finalfee.'" class="form-control" readonly>'.'</td>';
 
     $html[$key]['tdsource'] .= '<td>'.'<input type="hidden" name="student_id[]" value="'.$std->student_id.'">'.'<input type="checkbox" name="checkmanage[]" value="'.$key.'" '.$checked.' style="transform:scale(1.5);margin-left:10px;">'.'</td>';
-
-   }
-   return response()->json(@$html);
+    }
+    return response()->json(@$html);
    } 
 
 
    public function store(Request $request){
-
-
     $date =date('Y-m',strtotime($request->date));
     AccountStudentFee::where('year_id',$request->year_id)->where('class_id',$request->class_id)->where('fee_category_id',$request->fee_category_id)->where('date',$date)->delete();
     $checkdata = $request->checkmanage;
@@ -101,14 +95,10 @@ class StudentFeeController extends Controller
      }
     }
     if(! empty(@$data) ||empty($checkdata)){
-     return redirect()->route('student.fee.view')->with('success','well done ! Successfully Update');
+    return redirect()->route('student.fee.view')->with('success','well done ! Successfully Update');
     }else{
      return redirect()->back()->with('error','Sorry! date not Saved');
     }
-
    }
-
-
-
 
 }

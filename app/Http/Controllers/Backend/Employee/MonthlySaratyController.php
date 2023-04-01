@@ -22,10 +22,11 @@ use PDF;
 
 class MonthlySaratyController extends Controller
 {
+
   public function view()
 	 {
 	
-		 // $data['alldata'] = EmployeeAttendance::select('date')->groupBy('date')->orderBy('id','desc')->get();
+		 $data['alldata'] = EmployeeAttendance::select('date')->groupBy('date')->orderBy('id','desc')->get();
 		 return view('backend.employee.monthly_salary.view-salary');
 	 }
 
@@ -34,7 +35,7 @@ class MonthlySaratyController extends Controller
    if($date !=''){
    	$where[] = ['date','like',$date.'%'];
    }
-  $data= EmployeeAttendance::select('employee_id')->groupBy('employee_id')->with(['user'])->where($where)->get();
+   $data= EmployeeAttendance::select('employee_id')->groupBy('employee_id')->with(['user'])->where($where)->get();
 
    $html['thsource']  = '<th>SL</th>';
    $html['thsource'] .= '<th>Employee Id</th>';
