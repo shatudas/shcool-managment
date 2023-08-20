@@ -3,7 +3,8 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <div class="content-header">
+  
+   <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -16,7 +17,7 @@
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
-     </div><!-- /.container-fluid -->
+     </div>
    </div>
 
  <!-- Main content -->
@@ -26,6 +27,7 @@
       <div class="col-12">
 
         <div class="card">
+
          <div class="card-header">
           <h3>Student List
            <a href="{{route('student.registration.add')}}" class=" btn btn-success btn-sm float-right"> <i class="fa fa-plus-circle"></i> Add Student </a>
@@ -37,32 +39,31 @@
            <form method="GET" action="{{ Route('student.year.class') }}" id="myForm">
              <div class="form-row">
 
-            <div class="form-group col-md-4">
-             <label for="yesr_id">Year <font style="color:red">*</font> </label>
-             <select name="yesr_id" class="form-control form-control-sm">
-              <option value=""> Select Year</option>
-              @foreach($years as $year)
-               <option value="{{ $year->id }}" {{(@$yesr_id==$year->id)?"selected":""}}>{{ $year->name }}</option>
-               @endforeach
-             </select>
-             <font style="color:red">{{($errors->has('name'))?($errors->first('name')):'' }}</font>
-            </div>
+              <div class="form-group col-md-4">
+               <label for="yesr_id">Year <font style="color:red">*</font> </label>
+               <select name="yesr_id" class="form-control form-control-sm">
+                <option value=""> Select Year</option>
+                @foreach($years as $year)
+                 <option value="{{ $year->id }}" {{(@$yesr_id==$year->id)?"selected":""}}>{{ $year->name }}</option>
+                 @endforeach
+               </select>
+               <font style="color:red">{{($errors->has('name'))?($errors->first('name')):'' }}</font>
+              </div>
 
-            <div class="form-group col-md-4">
-             <label for="class_id">Class <font style="color:red">*</font> </label>
-             <select name="class_id" class="form-control form-control-sm">
-              <option value="">Select Class</option>
-              @foreach($classs as $class)
-               <option value="{{ $class->id }}" {{(@$class_id==$class->id)?"selected":""}}>{{ $class->name }}</option>
-               @endforeach
-             </select>
-             <font style="color:red">{{($errors->has('class_id'))?($errors->first('class_id')):'' }}</font>
-            </div>
+              <div class="form-group col-md-4">
+               <label for="class_id">Class <font style="color:red">*</font> </label>
+               <select name="class_id" class="form-control form-control-sm">
+                <option value="">Select Class</option>
+                @foreach($classs as $class)
+                 <option value="{{ $class->id }}" {{(@$class_id==$class->id)?"selected":""}}>{{ $class->name }}</option>
+                 @endforeach
+               </select>
+               <font style="color:red">{{($errors->has('class_id'))?($errors->first('class_id')):'' }}</font>
+              </div>
 
-
-            <div class="form-group col-md-4" style="padding-top:30px;">
-             <button type="submit" class="btn btn-primary" name="search">Search</button>
-            </div>
+              <div class="form-group col-md-4" style="padding-top:30px;">
+               <button type="submit" class="btn btn-primary" name="search">Search</button>
+              </div>
 
              </div>
            </form>

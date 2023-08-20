@@ -59,10 +59,12 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->code}}</td>
-                    <td>
-                      <a title="Edit" href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
+                    <td align="center">
                       @if($user->delete_able == true)
+                      <a title="Edit" href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-primary" ><i class="fa fa-edit"></i></a>
                       <a title="Delete" href="{{route('user.delete',$user->id)}}" id="delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                      @else
+                      <center><span class="btn btn-sm btn-primary" >Administrator</span></center>
                       @endif
                     </td>
 

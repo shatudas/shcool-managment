@@ -43,7 +43,7 @@
                  <select name="role" id="role" class="form-control">
                   <option value="">Select Role</option>
                   <option value="Admin" {{$editData->role=="Admin"?"selected":""}}>Admin</option>
-                  <option value="Oparetor" {{$editData->role=="Oparetor"?"selected":""}}>Oparetor</option>
+                  <option value="User" {{$editData->role=="User"?"selected":""}}>User</option>
                  </select>
                 </div>
 

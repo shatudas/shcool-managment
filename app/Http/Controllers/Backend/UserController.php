@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Mail;
 
 class UserController extends Controller
 {
     public function view()
     {
-      $data['allData'] = User::where('user_type','Admin')->get();
+      $data['allData'] = User::get();
     	return view('backend.user.view-user',$data);
     }
 
@@ -28,13 +29,26 @@ class UserController extends Controller
       ]);
       $code = rand(0000,9999);
       $data= new User();
-      $data->user_type='Admin';
+      // $data->user_type='Admin';
+      $data->user_type=$Request->role;
       $data->role=$Request->role;
       $data->name=$Request->name;
       $data->email=$Request->email;
       $data->password=bcrypt($code);
       $data->code= $code;
       $data->save();
+
+      $data = array(
+       'name' => $Request->name,
+       'email' => $Request->email
+      );
+      
+      Mail::send('backend.mail.user_confirm', $data, function ($message) use ($data) {
+      $message->from(env('MAIL_FROM_ADDRESS'), 'ABC School');
+      $message->to($data['email']);
+      $message->subject('User Registration');
+     });
+
       return redirect()->route('user.view')->with('success','Data Insert Successfully');
 
     }
@@ -53,6 +67,7 @@ class UserController extends Controller
       ]);
 
      $data= user::find($id);
+      $data->user_type=$Request->user_type;
       $data->name=$Request->name;
       $data->role=$Request->role;
       $data->email=$Request->email;

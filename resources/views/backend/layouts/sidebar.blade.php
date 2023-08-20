@@ -7,7 +7,7 @@ $route = Route::current()->getName();
  <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-   @if(Auth::user()->role=='Admin')
+   @if(Auth::user()->user_type == 'Admin')
    <li class="nav-item has-treeview {{($prefix=='/user')?'menu-open':''}}">
     <a href="#" class="nav-link">
      <i class="nav-icon fas fa-copy"></i>
